@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="div1"></div>
+    <script>
+    var url='http://api.openweathermap.org/data/2.5/weather?q=Udaipur,Rajasthan&APPID=12ed32e243cdbfda468de949acdcf094';
+    var xhr=new XMLHttpRequest();
+    xhr.open('GET',url);
+    xhr.onreadystatechange=test
+    var e1=document.createElement('ul')
+    function test(){
+      if(this.status==200 && this.readyState==4){
+        var res_data=JSON.parse(this.responseText)
+        console.log(res_data)
+          var e2=document.createElement('li')
+          var p1=document.createElement('h2')
+          p1.innerHTML='Temperature:'
+
+        var div_url=res_data.main.temp;
+        p1.append(div_url)
+          e2.appendChild(p1)
+        var get_tag=document.getElementById('div1');
+        e1.appendChild(e2)
+        get_tag.append(e1)
+        var e3=document.createElement('li')
+        div_url=res_data.main.temp;
+          e3.append(div_url)
+          e1.appendChild(e3)
+          get_tag.append(e1)
+      }
+    }
+    xhr.send();
+    </script>
+  </body>
+</html>

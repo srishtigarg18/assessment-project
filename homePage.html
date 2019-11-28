@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+     <link rel="stylesheet" type="text/css" href="homePage.css">
+    <title>Home Page</title>
+  </head>
+
+  <body onload="myFunction()" style="margin:0;">
+
+    <div id="loader"><img src="gif2.gif"></div>
+
+<div style="display:none;" id="myDiv" class="animate-bottom">
+  <div id=d1>
+<div id=div1>
+    <img id=head1 src="camel-gif.gif" width=100% height="150px">
+      Welcome to The Land of Kings... <b>Rajasthan</b>  </div>
+
+
+    <div class="dropdown">
+      <button class="dropbtn">Places To Explore</button>
+      <div class="dropdown-content">
+        <a href="#">JAIPUR</a>
+        <a href="#">UDAIPUR</a>
+        <a href="#">JODHPUR</a>
+      </div>
+    </div>
+    <div class="slideshow-container">
+
+  <div class="mySlides fade">
+
+    <img src="img1.jpg" style="width:100%">
+
+  </div>
+
+  <div class="mySlides fade">
+
+    <img src="img2.jpg" style="width:100%">
+
+  </div>
+
+  <div class="mySlides fade">
+
+    <img src="img3.jpg" style="width:100%">
+
+  </div>
+
+  </div>
+  <br>
+
+  <div style="text-align:center">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+
+  <script>
+  var slideIndex = 0;
+  showSlides();
+
+  function showSlides() {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) {slideIndex = 1}
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+    setTimeout(showSlides, 2000); // Change image every 2 seconds
+  }
+  </script>
+</div>
+  <div class="background">
+    <div class="transbox">
+      <p>Rajasthan literally means "Land of Kings" or "King's Abode"</p>
+      With amazing architecture, immortal tales of love, inspiring stories of valour and a harsh desert in the background,
+        Rajasthan is a place you can only draw inspiration from. Our 8 day tour of this wonderful state allows you to witness the
+        magnificence of this region and the royal way of life. Undoubtedly, we could call our tour nothing other than
+         "The Glory of Rajasthan".
+Visit the attractive and busy streets of Jaipur, watch the Sun set over the dunes at Jaisalmer, taste the savouries of Bikaner and
+ enjoy the quiet of the lake at Udaipur with our tour. The history and art of the region just cannot be appreciated unless you
+ visit and experience the culture of Rajasthan. At We can guarantee that your trip will be a memorable one.</p>
+    </div>
+  </div>
+  <script>
+  var myVar;
+
+  function myFunction() {
+  myVar = setTimeout(showPage, 2000);
+  }
+
+  function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+  }
+  </script>
+</div>
+  </body>
+</html>
