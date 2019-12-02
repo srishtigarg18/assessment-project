@@ -1,21 +1,70 @@
 <html>
   <head>
+    <style>
+    .container1
+    {
+      height:180px;
+      background-color:#fefee2;
+      padding-top: 20px;
+      padding-left:20px;
+    }
+    #he10{
+      font-family: "Philosopher";
+      color: white;
+      padding-left: 5px;
+      padding-top: 5px;
+    }
+    #c1
+    {
+      background-color:#009688;
+    }
+    #bcon1
+    {
+      border-radius: 25px;
+      color: white;
+      margin-right: 15px;
+      background-color:#009688;
+    border: none;
+    color: white;
+    opacity: 0.6;
+    transition: 0.3s;
+    cursor: pointer;
+      padding: 16px 32px;
+      margin-left: 10px;
+      text-align: center;
+     font-size: 16px;
+    }
+    #bcon1:hover{
+      opacity:1;
+    }
+    input[type=text] {
+  padding: 0;
+  height: 30px;
+  position: relative;
+  left: 0;
+  outline: none;
+  border: 1px solid #cdcdcd;
+  border-color: rgba(0, 0, 0, .15);
+  background-color: white;
+  font-size: 16px;
+}
+input[type=text]:hover{
+  background-color: orange;
+}
 
+    </style>
 </head>
 <body>
-  <div>
-    <h1>Currency Converter</h1>
-  </div>
-  <div class="container">
+  <div id="c1">
+    <h1 id="he10" style="color:white;">Currency Converter</h1>
 
-  </div>
-  <div class="container">
+<div class="container1">
       <input type="text" value="0" name="from_VAL" id="from_VAL" placeholder="Enter amount" />
-      <button type="button" name="button" onclick="convert()"> Convert This!! </button>
+      <button id="bcon1" type="button" name="button" onclick="convert()"> Convert This!! </button>
     <br>
     <div class="medium-3 columns">
       <select id="from" class="postfix">
-        <option value="AUD" >AUD</option>
+        <option value="AUD">AUD</option>
         <option value="AZN" >AZN</option>
         <option value="BHD" >BHD</option>
         <option value="CAD" >CAD</option>
@@ -52,9 +101,10 @@
     </div>
     <br>
     <div class="medium-3 columns">
-      <input type="text" id="to_VAL" readonly placeholder="get value" disabled style="background-color: #eee; font-weight: bold;" value=0 />
+      <input type="text" id="to_VAL" readonly placeholder="get value" font-weight: bold;" value=0 />
     </div>
   </div>
+</div>
   <script>
     function convert(){
       // console.log('Inside Convert!!!')

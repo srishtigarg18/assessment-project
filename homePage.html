@@ -2,27 +2,36 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-     <link rel="stylesheet" type="text/css" href="homePage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="homePage.css">
     <title>Home Page</title>
   </head>
 
   <body onload="myFunction()" style="margin:0;">
 
-    <div id="loader"><img src="gif2.gif"></div>
+    <div id="loader"><img src="gif2.gif"><br><br><br><p style="padding-left:200px;font-size:20px;color:black;">Amazingness on its way....<p></div>
 
 <div style="display:none;" id="myDiv" class="animate-bottom">
   <div id=d1>
 <div id=div1>
     <img id=head1 src="camel-gif.gif" width=100% height="150px">
-      Welcome to The Land of Kings... <b>Rajasthan</b>  </div>
-
+      <p id="p1">Welcome to The Land of Kings... <b>Rajasthan</b>  </div>
+          <table id="tb1">
+             <tr>
+               <td id="th3" colspan="1"><a href="#b1">ABOUT</a> </td>
+               <td id="th1" colspan="1"><a href="#c1">CURRENCY CONVERTER</a></th>
+               <td id="th1" colspan="1"><a href="#divw1">WEATHER</a></th>
+               <td id="th1"colspan="1"><a href="#footer">CONTACT</a></th>
+               <th colspan="1" id="i2"></th>
+             </tr>
+           </table>
 
     <div class="dropdown">
       <button class="dropbtn">Places To Explore</button>
       <div class="dropdown-content">
-        <a href="#">JAIPUR</a>
-        <a href="#">UDAIPUR</a>
-        <a href="#">JODHPUR</a>
+        <a href="Jaipur.html" style="color:black;">JAIPUR</a>
+        <a href="Udaipur.html"style="color:black;">UDAIPUR</a>
+        <a href="Jodhpur.html" style="color:black;">JODHPUR</a>
       </div>
     </div>
     <div class="slideshow-container">
@@ -76,9 +85,9 @@
   }
   </script>
 </div>
-  <div class="background">
+  <div class="background" id="b1">
     <div class="transbox">
-      <p>Rajasthan literally means "Land of Kings" or "King's Abode"</p>
+      <p style="color:purple;">Rajasthan literally means "Land of Kings" or "King's Abode"</p>
       With amazing architecture, immortal tales of love, inspiring stories of valour and a harsh desert in the background,
         Rajasthan is a place you can only draw inspiration from. Our 8 day tour of this wonderful state allows you to witness the
         magnificence of this region and the royal way of life. Undoubtedly, we could call our tour nothing other than
@@ -100,6 +109,155 @@ Visit the attractive and busy streets of Jaipur, watch the Sun set over the dune
   document.getElementById("myDiv").style.display = "block";
   }
   </script>
+<div style="margin-block-end:-50px">
+  <div id="c1">
+    <h1 id="he1" style="color:white;">Currency Converter</h1>
+
+  <div class="container1">
+      <input type="text" value="0" name="from_VAL" id="from_VAL" placeholder="Enter amount" />
+
+       <button id="bcon1" type="button" name="button" onclick="convert()"style="float:left;"> Convert This!! </button><br><br><br>
+       <div class="medium-3 columns">
+         <select id="from" class="postfix" style="float:left;">
+           <option value="AUD">AUD</option>
+           <option value="AZN" >AZN</option>
+           <option value="BHD" >BHD</option>
+           <option value="CAD" >CAD</option>
+           <option value="CHF" >CHF</option>
+           <option value="EUR" >EUR</option>
+           <option value="GBP" >GBP</option>
+           <option value="INR" >INR</option>
+           <option value="JOD" >JOD</option>
+           <option value="KWD" >KWD</option>
+           <option value="KYD" >KYD</option>
+           <option value="OMR" >OMR</option>
+           <option value="USD" selected>USD</option>
+           <option value="UYU" >UYU</option>
+         </select>
+       </div>
+
+    <br>
+<br><br>
+
+     <div class="medium-3 columns">
+       <select id="to" class="postfix"  style="float:left;">
+         <option value="AUD" >AUD</option>
+         <option value="AZN" >AZN</option>
+         <option value="BHD" >BHD</option>
+         <option value="CAD" >CAD</option>
+         <option value="CHF" >CHF</option>
+         <option value="EUR" >EUR</option>
+         <option value="GBP" >GBP</option>
+         <option value="INR" selected>INR</option>
+         <option value="JOD" >JOD</option>
+         <option value="KWD" >KWD</option>
+         <option value="KYD" >KYD</option>
+         <option value="OMR" >OMR</option>
+         <option value="USD">USD</option>
+         <option value="UYU" >UYU</option>
+       </select>
+    </div>
+    <br>
+    <br>
+    <div class="medium-3 columns">
+      <input type="text" id="to_VAL" readonly placeholder="get value" font-weight: bold;" value=0 />
+    </div>
+  </div>
+</div>
+  <script>
+    function convert(){
+      // console.log('Inside Convert!!!')
+      // alert("a");
+      var from =document.getElementById("from").value;
+      var to = document.getElementById("to").value;
+      var xmlhttp= new XMLHttpRequest();
+      var url="https://free.currencyconverterapi.com/api/v6/convert?q="+from+"_"+to+"&compact=ultra&apiKey=44bbef74df526f28aa0a";
+
+      xmlhttp.open("GET", url, true);//async
+      xmlhttp.send();
+      xmlhttp.onreadystatechange=function(){
+        if(this.readyState === 4 && this.status === 200 )
+        {
+          var result=this.responseText;
+          console.log(result);
+          var jsResult=JSON.parse(result);
+          var q = from+"_"+to;
+          console.log(q);
+          console.log(jsResult[q]);
+          // var one= jsResult.rates[to]/jsResult.rates[from];
+          // var amount=document.getElementById("from");
+          var amount = jsResult[q] * document.getElementById('from_VAL').value;
+          console.log(amount);
+          document.getElementById("to_VAL").value= amount;
+        }
+      }
+    }
+  </script>
+<br><br>
+</div>
+<div style="background-color:black;height:20px;"></div>
+<div id="divw1"><strong><p style="float:left;font-size:25px;font-family:"Philosopher";">Weather Conditions:</p></strong>
+  <img src="suncap.jpg" style="float:left;margin-top:50px;margin-left:-300px;" >
+<script>
+var url='https://api.openweathermap.org/data/2.5/weather?q=Udaipur,Rajasthan&APPID=12ed32e243cdbfda468de949acdcf094';
+var xhr=new XMLHttpRequest();
+xhr.open('GET',url);
+xhr.onreadystatechange=test
+var e1=document.createElement('ul')
+e1.id="ul1";
+function test(){
+  if(this.status==200 && this.readyState==4){
+    var res_data=JSON.parse(this.responseText)
+    console.log(res_data)
+
+    var get_tag=document.getElementById('divw1');
+
+
+    var e3=document.createElement('li')
+    e3.id="li4"
+
+    div_url='Wind :'+res_data.wind.speed+" km/hr";
+      e3.append(div_url)
+      e1.appendChild(e3)
+      get_tag.append(e1)
+
+      var e4=document.createElement('li')
+      e4.id="li1"
+        var p3=document.createElement('p')
+      div_url='Humidity:'+res_data.main.humidity+"%";
+
+        e4.append(div_url)
+        e1.appendChild(e4)
+        get_tag.append(e1)
+
+        var e5=document.createElement('li')
+        e5.id="li3"
+          var num1=res_data.main.temp_max-273.15+10
+          var num2=res_data.main.temp_min-273.15-5
+        div_url='Maximum Temperature:'+num1+" °C "+" "+'Minimum Temperature:'+num2+" °C";
+          e5.append(div_url)
+          e1.appendChild(e5)
+          get_tag.append(e1)
+
+  }
+}
+xhr.send();
+</script>
+</div>
+<div id="footer">
+
+        <br>
+        <a href="https://www.facebook.com/" target="_blank" class="fa fa-facebook"></a>
+        <a href="https://www.google.co.in/" target="_blank" class="fa fa-google"></a>
+        <a href="https://www.linkedin.com/in/srishti-garg-349979182/" target="_blank"class="fa fa-linkedin"></a>
+        <a href="https://www.instagram.com/accounts/login/?hl=en" target="_blank" class="fa fa-instagram"></a>
+          <a href="https://github.com/srishtigarg18" target="_blank" class="fa fa-github"></a>
+        <br><br>
+        Contact Us At: 9876543210<br>
+        Email Us At: <a id="linking" href="mailto:RajasthanTourism@gmail.com">RajasthanTourism@gmail.com</a><br>
+        For More Information About Me Visit: <a id="linking" href="https://srishtigarg18.github.io/resume/">Resume</a>
+          <button onclick="window.location.href='#d1';" id="myBtn">Top</button>
+      </div>
 </div>
   </body>
 </html>

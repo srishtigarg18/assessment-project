@@ -9,7 +9,7 @@ div#d1
 }
 div#d2
 {
-  background-color: #f8138f;
+  background-color:#ff8c0f;
   height: 15px;
 
 }
@@ -26,7 +26,7 @@ img#i2
 {
   width:200px;
   height:150px;
-  padding-left: 610px;
+  padding-left: 640px;
 }
 div#d3
 {
@@ -37,16 +37,16 @@ div#d3
 .t1 {
   position: absolute;
   top: 8px;
-  font-size: 80px;
+  font-size: 70px;
   padding-top: 45px;
-  padding-left: 650px;
+  padding-left: 630px;
 }
 .t2 {
   position: absolute;
   top: 8px;
   font-size: 30px;
   padding-top: 145px;
-  padding-left: 700px;
+  padding-left: 680px;
 }
 div#d4
 {
@@ -111,7 +111,7 @@ p#p5
   padding-right: 30px;
 }
 hr{
-  border:1px solid #f8138f;
+  border:1px solid #ff8c0f;
 border-collapse: collapse;
 }
 p#p6
@@ -232,7 +232,7 @@ a:active {
 }
 div#div6
 {
-  background-color:  #f8138f;
+  background-color: #ff8c0f;
   height: 65px;
   margin-block-end:-15px;
 }

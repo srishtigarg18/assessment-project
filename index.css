@@ -65,31 +65,44 @@ a:active {
   text-decoration: none;
 }
 
-.no-js #loader { display: none;  }
-.js #loader { display: block; position: absolute; left: 100px; top: 0; }
-#se-pre-con {
-	position: fixed;
-	left: 0px;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	z-index: 9999;
-	background: url(gif2.gif) center no-repeat #fff;
-  setTimeout:10;
-}
-h2
+
+#btn1
 {
-  color: #FFFFFF;
   float: right;
   margin-right: 15px;
   margin-left: 5px;
+  margin-top: 25px;
+  background-color:red;
+border: none;
+color: white;
+opacity: 0.6;
+transition: 0.3s;
+cursor: pointer;
+  padding: 16px 32px;
+  text-align: center;
+ font-size: 16px;
 }
+#btn1:hover
+{opacity: 1}
 #btn{
   background: black;
   color: white;
   float: right;
   margin-top: 25px;
   margin-right: 15px;
+  background-color:red;
+border: none;
+color: white;
+opacity: 0.6;
+transition: 0.3s;
+cursor: pointer;
+  padding: 16px 32px;
+  text-align: center;
+ font-size: 16px;
+}
+#btn:hover
+{
+  opacity: 1
 }
 * {box-sizing: border-box}
 /* Full-width input fields */
@@ -114,17 +127,17 @@ input[type=text]:focus, input[type=password]:focus {
 /* Extra styles for the cancel button */
 .cancelbtn {
   padding: 14px 20px;
-  background-color: #f44336;
+  background-color:white ;
 }
 
 /* Float cancel and signup buttons and add an equal width */
 .cancelbtn, .signup {
   float: left;
-  width: 50%;
+  width: 15%;
 }
 .signup{
   padding: 14px 20px;
-  background-color: white;
+  background-color:#f44336;
 }
 
 /* Add padding to container elements */

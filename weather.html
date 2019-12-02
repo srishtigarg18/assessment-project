@@ -1,39 +1,88 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <style>
+    ul#ul1
+    {
+      font-size:20px;
+      padding-top: -20px;
+    }
+    ul#ul1:hover
+    {
+      color: red
+    }
+#li1
+{
+  padding-top: 20px;
+}
+#li2
+{
+  padding-top: 0px;
+}
+#li3
+{
+  padding-top: 10px;
+}
+
+    </style>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
-    <div id="div1"></div>
+    <div id="divw1">
+      <img src="suncap.jpg">
     <script>
     var url='http://api.openweathermap.org/data/2.5/weather?q=Udaipur,Rajasthan&APPID=12ed32e243cdbfda468de949acdcf094';
     var xhr=new XMLHttpRequest();
     xhr.open('GET',url);
     xhr.onreadystatechange=test
     var e1=document.createElement('ul')
+    e1.id="ul1";
     function test(){
       if(this.status==200 && this.readyState==4){
         var res_data=JSON.parse(this.responseText)
         console.log(res_data)
           var e2=document.createElement('li')
-          var p1=document.createElement('h2')
-          p1.innerHTML='Temperature:'
+          e2.id="li2";
+          var p1=document.createElement('p')
 
-        var div_url=res_data.main.temp;
+          p1.innerHTML='Temperature:'
+        var div_url=res_data.main.temp-273.15+" °C "+"Pressure:"+res_data.main.temp;
         p1.append(div_url)
           e2.appendChild(p1)
-        var get_tag=document.getElementById('div1');
+        var get_tag=document.getElementById('divw1');
         e1.appendChild(e2)
         get_tag.append(e1)
         var e3=document.createElement('li')
-        div_url=res_data.main.temp;
+          var p2=document.createElement('p')
+            p2.id="para2";
+        div_url='Wind :'+res_data.wind.speed+" km/hr";
           e3.append(div_url)
           e1.appendChild(e3)
           get_tag.append(e1)
+
+          var e4=document.createElement('li')
+          e4.id="li1"
+            var p3=document.createElement('p')
+          div_url='Humidity:'+res_data.main.humidity+"%";
+
+            e4.append(div_url)
+            e1.appendChild(e4)
+            get_tag.append(e1)
+
+            var e5=document.createElement('li')
+            e5.id="li3"
+              var num1=res_data.main.temp_max-273.15+10
+              var num2=res_data.main.temp_min-273.15-5
+            div_url='Maximum Temperature:'+num1+" °C "+" "+'Minimum Temperature:'+num2+" °C";
+              e5.append(div_url)
+              e1.appendChild(e5)
+              get_tag.append(e1)
+
       }
     }
     xhr.send();
     </script>
+  </div>
   </body>
 </html>
