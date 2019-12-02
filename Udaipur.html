@@ -95,67 +95,45 @@
 </div>
 
 <script>
-  function initMap(){
-    // Map options
-    var options = {
-      zoom:6,
-      center:{lat:27.0238,lng:74.2179}
-    }
+function initMap(){
+     // Map options
+     var options = {
+       zoom:8,
+       center:{lat:24.5854,lng:73.7125}
+     }
+     // New map
+     var map = new google.maps.Map(document.getElementById('map'), options);
+     var markers = [
+       {
+         coords:{lat:24.5854,lng:73.7125},
+         content:'<h1>goyal</h1>'
+       }
+     ];
 
-    // New map
-    var map = new google.maps.Map(document.getElementById('map'), options);
-
-    // Listen for click on map
-    google.maps.event.addListener(map, 'click', function(event){
-      // Add marker
-      addMarker({coords:event.latLng});
-    });
-
-
-    var markers = [
-
-      {
-        coords:{lat:24.5854,lng:73.7125
-        },
-
-      }
-    ];
-
-    for(var i = 0;i < markers.length;i++){
-      // Add marker
-      addMarker(markers[i]);
-    }
-
-    // Add Marker Function
-    function addMarker(props){
-      var marker = new google.maps.Marker({
-        position:props.coords,
-        map:map,
-        //icon:props.iconImage
-      });
-
-      // Check for customicon
-      if(props.iconImage){
-        // Set icon image
-        marker.setIcon(props.iconImage);
-      }
-
-      // Check content
-      if(props.content){
-        var infoWindow = new google.maps.InfoWindow({
-          content:props.content
-        });
-
-        marker.addListener('click', function(){
-          infoWindow.open(map, marker);
-        });
-      }
-    }
-  }
+     for(var i = 0;i < markers.length;i++){
+       // Add marker
+       addMarker(markers[i]);
+     }
+     // Add Marker Function
+     function addMarker(props){
+       var marker = new google.maps.Marker({
+         position:props.coords,
+         map:map,
+         //icon:props.iconImage
+       });
+     // Check content
+       if(props.content){
+         var infoWindow = new google.maps.InfoWindow({
+           content:props.content
+         });
+       }
+     }
+   }
 </script>
 <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT-0FLpw-7hornyLDgivo_s_vlQhWwbEA&callback=initMap">
-  </script><br><br>
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDT-0FLpw-7hornyLDgivo_s_vlQhWwbEA&callback=initMap">
+</script>
+<br><br>
   <div id="footer">
 
           <br>
